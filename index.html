@@ -32,7 +32,6 @@ img{max-width:100%}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* ── KEYFRAMES ── */
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @keyframes ping{0%,100%{transform:scale(1);opacity:.4}50%{transform:scale(1.6);opacity:0}}
 @keyframes orb-drift{from{transform:translate(0,0) scale(1)}to{transform:translate(-70px,55px) scale(1.18)}}
 @keyframes ring-float{0%,100%{transform:translateY(0) scale(1);opacity:.35}50%{transform:translateY(-18px) scale(1.04);opacity:.65}}
@@ -47,37 +46,21 @@ img{max-width:100%}
 .text-center{text-align:center}
 
 /* ── SECTION BACKGROUNDS ── */
-.sec-bg{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.section-bg-light,.section-bg-dark{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .sbg-canvas{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
-
-/* Gradient orbs — large blurred color masses */
 .sbg-orb{position:absolute;border-radius:50%;filter:blur(72px);animation:orb-drift 20s ease-in-out infinite alternate}
 .sbg-orb1{width:520px;height:520px;background:radial-gradient(circle,rgba(29,78,216,.07),transparent 70%);top:-160px;right:-80px}
 .sbg-orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(14,165,233,.05),transparent 70%);bottom:-100px;left:-60px;animation-duration:25s;animation-delay:-9s}
-
-/* Floating wireframe rings */
 .sbg-ring{position:absolute;border-radius:50%;border:1px solid rgba(29,78,216,.08);animation:ring-float 14s ease-in-out infinite}
 .sbg-r1{width:380px;height:380px;top:-90px;right:-50px;animation-duration:16s}
 .sbg-r2{width:200px;height:200px;bottom:30px;left:5%;animation-delay:-6s;animation-duration:11s}
 .sbg-r3{width:140px;height:140px;top:45%;right:10%;animation-delay:-3s;animation-duration:9s;border-radius:16px;animation-name:sq-spin;animation-timing-function:linear;animation-duration:22s}
-
-/* Dark section grid */
-.sbg-grid{position:absolute;inset:-50%;
-  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-  background-size:60px 60px;animation:grid-drift 32s linear infinite}
-
-/* Glow pulses for dark sections */
+.sbg-grid{position:absolute;inset:-50%;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px;animation:grid-drift 32s linear infinite}
 .sbg-glow{position:absolute;border-radius:50%;filter:blur(32px);animation:glow-pulse 5s ease-in-out infinite}
 .sbg-g1{width:90px;height:90px;background:var(--accent-sky);top:22%;right:12%}
 .sbg-g2{width:55px;height:55px;background:var(--accent-lt);bottom:32%;left:9%;animation-delay:-2.5s}
 .sbg-g3{width:40px;height:40px;background:#818CF8;top:55%;right:28%;animation-delay:-1.2s}
-
-/* Light section aurora */
-.sbg-aurora{position:absolute;inset:0;
-  background:radial-gradient(ellipse 70% 60% at 15% 25%,rgba(14,165,233,.07),transparent 65%),
-             radial-gradient(ellipse 55% 80% at 80% 65%,rgba(99,102,241,.05),transparent 65%),
-             radial-gradient(ellipse 90% 45% at 50% 90%,rgba(56,189,248,.04),transparent 65%);
-  animation:aurora 18s ease-in-out infinite alternate}
+.sbg-aurora{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 15% 25%,rgba(14,165,233,.07),transparent 65%),radial-gradient(ellipse 55% 80% at 80% 65%,rgba(99,102,241,.05),transparent 65%),radial-gradient(ellipse 90% 45% at 50% 90%,rgba(56,189,248,.04),transparent 65%);animation:aurora 18s ease-in-out infinite alternate}
 
 .eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;padding:4px 12px;border-radius:20px;background:var(--accent-pale);border:1px solid rgba(29,78,216,.15)}
 .eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent-lt);flex-shrink:0}
@@ -108,9 +91,9 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
 .nav-end{display:flex;align-items:center;gap:8px;flex-shrink:0}
 
 /* ── HERO ── */
-.hero{position:relative;padding:60px 0 64px;overflow:hidden;background:linear-gradient(160deg,#EFF6FF 0%,#F8FAFC 60%,#EFF6FF 100%)}
+.hero{position:relative;padding:60px 0 64px;overflow:hidden;background:linear-gradient(160deg,#EFF6FF 0%,#F8FAFC 60%,#EFF6FF 100%);min-height:500px}
 .hero-canvas-wrap{position:absolute;inset:0;z-index:0;pointer-events:none}
-#hero-canvas{width:100%;height:100%;display:block;opacity:.82}
+#hero-canvas{width:100%;height:100%;display:block}
 .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr;max-width:760px;width:100%}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--bg-alt);border:1.5px solid var(--border);border-radius:24px;padding:6px 14px 6px 8px;font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;margin-bottom:18px;box-shadow:var(--shadow-sm)}
 .hero-dot{width:8px;height:8px;border-radius:50%;background:var(--accent-lt);position:relative}
@@ -120,7 +103,7 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
 .hero-sub{font-size:1.1rem;color:var(--text-soft);line-height:1.8;max-width:520px;margin-bottom:20px;font-weight:400}
 .hero-stats{display:flex;gap:36px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--border);margin-top:24px}
 .hero-stat-val{font-family:var(--f-head);font-size:1.4rem;font-weight:700;color:var(--text)}
-.hero-stat-lbl{font-size:12px;color:var(--text-soft);margin-top:2px}
+.hero-stat-lbl{font-size:12px;color:var(--text-soft);margin-top:2px;font-weight:600}
 
 /* ── PIPELINE ── */
 .pipeline{display:flex;align-items:center;justify-content:center;gap:0;margin:8px 0 32px;flex-wrap:wrap;position:relative;z-index:1}
@@ -161,14 +144,12 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.97);backdrop-
 .search-bar input{width:100%;padding:14px 20px 14px 48px;border-radius:var(--r);border:1.5px solid var(--border);background:var(--bg-alt);color:var(--text);font-size:.95rem;outline:none;transition:all .2s;box-shadow:var(--shadow-sm);font-family:var(--f-body)}
 .search-bar input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(29,78,216,.1)}
 .search-bar svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--text-xs);width:20px;height:20px}
-
-.filter-bar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;justify-content:center;align-items:center;position:relative;z-index:1}
+.filter-bar,.facet-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;justify-content:center;align-items:center;position:relative;z-index:1}
 .filter-label{font-size:.7rem;color:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;font-weight:700;margin-right:4px}
 .filter-chip{padding:7px 16px;border-radius:20px;border:1.5px solid var(--border);background:var(--bg-alt);color:var(--text-soft);cursor:pointer;font-size:.82rem;font-weight:500;transition:all .15s;font-family:var(--f-body);white-space:nowrap}
 .filter-chip:hover{background:var(--accent-pale);border-color:var(--accent);color:var(--accent)}
 .filter-chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
 .filter-chip .count{font-size:.7rem;opacity:.7;margin-left:4px}
-.facet-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;justify-content:center;align-items:center;position:relative;z-index:1}
 
 /* ── DEMO CARDS ── */
 .demos-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;position:relative;z-index:1}
@@ -233,7 +214,7 @@ footer a{color:var(--accent-sky);font-weight:600}
 @media(max-width:768px){
   .nav-center{display:none}
   .hero h1{font-size:1.8rem}
-  .hero{padding:40px 0 48px}
+  .hero{padding:40px 0 48px;min-height:auto}
   .section{padding:48px 0}
   .cat-grid{grid-template-columns:1fr}
   .demos-grid{grid-template-columns:1fr}
@@ -263,11 +244,9 @@ footer a{color:var(--accent-sky);font-weight:600}
   </div>
 </nav>
 
-<!-- HERO — main Three.js canvas only here -->
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-canvas-wrap"><canvas id="hero-canvas"></canvas></div>
-  <div class="sbg-orb sbg-orb1"></div><div class="sbg-orb sbg-orb2"></div>
-  <div class="sbg-ring sbg-r1"></div><div class="sbg-ring sbg-r2"></div>
   <div class="container">
     <div class="hero-grid">
       <div class="hero-badge"><div class="hero-dot"></div>47 Demos · 9 Categories</div>
@@ -285,7 +264,7 @@ footer a{color:var(--accent-sky);font-weight:600}
 
 <!-- PIPELINE -->
 <div class="section" style="padding:32px 0">
-  <div class="sec-bg"><div class="sbg-aurora"></div></div>
+  <div class="section-bg-light"><div class="sbg-aurora"></div></div>
   <div class="container">
     <div class="text-center"><span class="eyebrow">How to Explore</span></div>
     <div class="pipeline">
@@ -308,161 +287,234 @@ footer a{color:var(--accent-sky);font-weight:600}
   <p><a href="https://nebulacloud.studio">Built with NebulaCloud Studio</a> · Engineering Execution Platform</p>
 </footer>
 
-<!-- ── THREE.JS — Hero + per-section canvases ── -->
-<script type="importmap">
-{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js"}}
-</script>
-<script type="module">
-import * as THREE from 'three';
+<!-- ── THREE.JS r128 (EXACT MATCH from nebulacloud.studio) ── -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ── HERO SCENE ── exact replication from nebulacloud.studio ── */
+(function(){
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const hero = canvas.closest('.hero');
+  canvas.style.opacity = '0';
 
-// ── HERO CANVAS ──
-const heroCanvas=document.getElementById('hero-canvas');
-if(heroCanvas){
-  const hRenderer=new THREE.WebGLRenderer({canvas:heroCanvas,antialias:true,alpha:true});
-  hRenderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-  hRenderer.setSize(window.innerWidth,window.innerHeight);
-  const hScene=new THREE.Scene();
-  const hCamera=new THREE.PerspectiveCamera(55,window.innerWidth/window.innerHeight,0.1,100);
-  hCamera.position.set(0,0,22);
+  function initHero() {
+    const W = hero.clientWidth || window.innerWidth;
+    const H = hero.clientHeight || Math.round(W * 0.65);
+    if (!W || !H) return;
+    canvas.width = W; canvas.height = H;
 
-  hScene.add(new THREE.AmbientLight(0x8899cc,2.4));
-  const dl=new THREE.DirectionalLight(0xffffff,3.2);dl.position.set(5,8,5);hScene.add(dl);
-  const dl2=new THREE.DirectionalLight(0x8899ff,1.6);dl2.position.set(-5,-3,3);hScene.add(dl2);
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: !(/Mobi|Android/i.test(navigator.userAgent)) });
+    } catch(e) { canvas.style.display = 'none'; return; }
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(W, H);
+    renderer.setClearColor(0x000000, 0);
 
-  const geos=[
-    new THREE.IcosahedronGeometry(0.9,0),
-    new THREE.OctahedronGeometry(0.65,0),
-    new THREE.TorusKnotGeometry(0.45,0.12,80,10,2,3),
-    new THREE.TetrahedronGeometry(0.7,0),
-    new THREE.DodecahedronGeometry(0.6,0),
-    new THREE.TorusGeometry(0.5,0.1,16,40),
-    new THREE.BoxGeometry(0.55,0.55,0.55),
-    new THREE.ConeGeometry(0.4,0.85,8)
-  ];
-  const mats=[
-    new THREE.MeshPhysicalMaterial({color:0x2563eb,metalness:0.06,roughness:0.18,clearcoat:0.4,clearcoatRoughness:0.15}),
-    new THREE.MeshPhysicalMaterial({color:0x7c3aed,metalness:0.08,roughness:0.15,clearcoat:0.45}),
-    new THREE.MeshPhysicalMaterial({color:0x0891b2,metalness:0.05,roughness:0.2,clearcoat:0.35}),
-    new THREE.MeshStandardMaterial({color:0x059669,metalness:0.12,roughness:0.22}),
-    new THREE.MeshPhysicalMaterial({color:0xdb2777,metalness:0.07,roughness:0.18,clearcoat:0.38}),
-    new THREE.MeshStandardMaterial({color:0xd97706,metalness:0.18,roughness:0.25})
-  ];
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(55, W / H, 0.1, 100);
+    camera.position.set(0, 0, 5.5);
 
-  const hShapes=[];
-  for(let i=0;i<20;i++){
-    const m=new THREE.Mesh(geos[i%geos.length],mats[i%mats.length].clone());
-    m.position.set((Math.random()-0.5)*20,(Math.random()-0.5)*12,(Math.random()-0.5)*6-4);
-    m.rotation.set(Math.random()*Math.PI*2,Math.random()*Math.PI*2,Math.random()*Math.PI*2);
-    m.userData={rs:{x:(Math.random()-0.5)*0.005,y:(Math.random()-0.5)*0.006,z:(Math.random()-0.5)*0.004},fs:0.25+Math.random()*0.5,fa:0.25+Math.random()*0.6,by:m.position.y};
-    hScene.add(m);hShapes.push(m);
-  }
+    const globeGroup = new THREE.Group();
+    globeGroup.position.x = 2.8;
+    scene.add(globeGroup);
 
-  const pc=250;
-  const pa=new Float32Array(pc*3);
-  for(let i=0;i<pc*3;i++)pa[i]=(Math.random()-0.5)*30;
-  const pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pa,3));
-  const pm=new THREE.PointsMaterial({size:0.035,color:0x2563eb,transparent:true,opacity:0.35,depthWrite:false});
-  const pt=new THREE.Points(pg,pm);hScene.add(pt);
+    // Outer wireframe icosahedron
+    const geoOuter = new THREE.IcosahedronGeometry(2, 3);
+    const wireOuter = new THREE.WireframeGeometry(geoOuter);
+    const matOuter = new THREE.LineBasicMaterial({ color: 0x0369A1, transparent: true, opacity: 0.13 });
+    const meshOuter = new THREE.LineSegments(wireOuter, matOuter);
+    globeGroup.add(meshOuter);
 
-  const cl=new THREE.Clock();
-  function heroAnim(){
-    requestAnimationFrame(heroAnim);
-    const t=cl.getElapsedTime();
-    hShapes.forEach(s=>{
-      s.rotation.x+=s.userData.rs.x;s.rotation.y+=s.userData.rs.y;s.rotation.z+=s.userData.rs.z;
-      s.position.y=s.userData.by+Math.sin(t*s.userData.fs)*s.userData.fa;
+    // Inner wireframe icosahedron
+    const geoInner = new THREE.IcosahedronGeometry(1.1, 2);
+    const wireInner = new THREE.WireframeGeometry(geoInner);
+    const matInner = new THREE.LineBasicMaterial({ color: 0x0EA5E9, transparent: true, opacity: 0.22 });
+    const meshInner = new THREE.LineSegments(wireInner, matInner);
+    globeGroup.add(meshInner);
+
+    // Orbiting nodes
+    const nodeGeo = new THREE.SphereGeometry(0.055, 10, 10);
+    const nodes = [];
+    const nodeColors = [0x0369A1, 0x0EA5E9, 0x38BDF8, 0x0369A1, 0x0EA5E9, 0x7DD3FC, 0x0369A1, 0x0EA5E9];
+    for (let i = 0; i < 8; i++) {
+      const mat = new THREE.MeshBasicMaterial({ color: nodeColors[i], transparent: true, opacity: 0.85 });
+      const node = new THREE.Mesh(nodeGeo, mat);
+      const phi = Math.acos(-1 + (2 * i) / 8);
+      const theta = Math.sqrt(8 * Math.PI) * phi;
+      const r = 2.6;
+      node.position.set(r * Math.sin(phi) * Math.cos(theta), r * Math.cos(phi), r * Math.sin(phi) * Math.sin(theta));
+      node.userData = { r, phi, baseTheta: theta, speed: 0.0004 + Math.random() * 0.0003 };
+      globeGroup.add(node);
+      nodes.push(node);
+    }
+
+    // Connection lines
+    const lineMat = new THREE.LineBasicMaterial({ color: 0x0EA5E9, transparent: true, opacity: 0.15 });
+    for (let i = 0; i < nodes.length; i++) {
+      const j = (i + 2) % nodes.length;
+      const pts = [nodes[i].position.clone(), nodes[j].position.clone()];
+      const lg = new THREE.BufferGeometry().setFromPoints(pts);
+      globeGroup.add(new THREE.Line(lg, lineMat));
+    }
+
+    // Particles
+    const pCount = 280;
+    const pPos = new Float32Array(pCount * 3);
+    for (let i = 0; i < pCount; i++) {
+      pPos[i * 3] = (Math.random() - 0.5) * 9;
+      pPos[i * 3 + 1] = (Math.random() - 0.5) * 9;
+      pPos[i * 3 + 2] = (Math.random() - 0.5) * 5;
+    }
+    const pGeo = new THREE.BufferGeometry();
+    pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+    const pMat = new THREE.PointsMaterial({ color: 0x0369A1, size: 0.025, transparent: true, opacity: 0.45 });
+    scene.add(new THREE.Points(pGeo, pMat));
+
+    // Mouse parallax
+    let mx = 0, my = 0, tmx = 0, tmy = 0;
+    document.addEventListener('mousemove', e => { tmx = (e.clientX / window.innerWidth - 0.5) * 0.6; tmy = -(e.clientY / window.innerHeight - 0.5) * 0.4; });
+
+    const clock = new THREE.Clock();
+    function animate() {
+      requestAnimationFrame(animate);
+      const t = clock.getElapsedTime();
+      meshOuter.rotation.x = t * 0.08;
+      meshOuter.rotation.y = t * 0.12;
+      meshInner.rotation.x = -t * 0.12;
+      meshInner.rotation.y = t * 0.18;
+      nodes.forEach((n, i) => {
+        const theta = n.userData.baseTheta + t * n.userData.speed * 60;
+        n.position.set(n.userData.r * Math.sin(n.userData.phi) * Math.cos(theta), n.userData.r * Math.cos(n.userData.phi) + Math.sin(t * 0.4 + i) * 0.08, n.userData.r * Math.sin(n.userData.phi) * Math.sin(theta));
+      });
+      mx += (tmx - mx) * 0.05;
+      my += (tmy - my) * 0.05;
+      globeGroup.position.x = 2.8 + mx;
+      globeGroup.position.y = my;
+      camera.lookAt(scene.position);
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    canvas.style.transition = 'opacity .4s ease';
+    canvas.style.opacity = '.85';
+
+    window.addEventListener('resize', () => {
+      const nW = hero.clientWidth, nH = hero.clientHeight;
+      if (!nW || !nH) return;
+      camera.aspect = nW / nH;
+      camera.updateProjectionMatrix();
+      renderer.setSize(nW, nH);
     });
-    pt.rotation.y+=0.00015;
-    const sy=window.scrollY;const mh=Math.max(document.body.scrollHeight-window.innerHeight,1);
-    hCamera.position.y=-sy/mh*2;
-    hCamera.lookAt(0,0,0);
-    hRenderer.render(hScene,hCamera);
   }
-  heroAnim();
-  window.addEventListener('resize',()=>{
-    hCamera.aspect=window.innerWidth/window.innerHeight;hCamera.updateProjectionMatrix();
-    hRenderer.setSize(window.innerWidth,window.innerHeight);
+
+  if (typeof THREE !== 'undefined') requestAnimationFrame(initHero);
+  else canvas.style.display = 'none';
+})();
+
+/* ── PER-SECTION CANVASES ── exact replication from nebulacloud.studio ── */
+(function(){
+  if (!window.THREE) return;
+  if (window.innerWidth <= 768) return;
+
+  requestAnimationFrame(() => {
+    document.querySelectorAll('.sbg-canvas').forEach(canvas => {
+      const section = canvas.closest('section') || canvas.closest('.section,.section-dark');
+      if (!section) return;
+      const obs = new IntersectionObserver(entries => { if (entries[0].isIntersecting) { obs.disconnect(); initSectionBg(canvas); } }, { threshold: 0.04 });
+      obs.observe(section);
+    });
   });
-}
 
-// ── PER-SECTION CANVASES (sbg-canvas) ──
-const sectionCanvases=[];
-const geoBuilders={
-  octa:()=>new THREE.OctahedronGeometry(0.8,0),
-  ico:()=>new THREE.IcosahedronGeometry(0.7,0),
-  ring:()=>new THREE.TorusGeometry(0.6,0.06,16,48),
-  torus:()=>new THREE.TorusGeometry(0.5,0.1,12,36),
-  tetra:()=>new THREE.TetrahedronGeometry(0.75,0),
-  torusknot:()=>new THREE.TorusKnotGeometry(0.4,0.08,64,8,2,3),
-  pts:()=>null,
-  box:()=>new THREE.BoxGeometry(0.6,0.6,0.6),
-  dodec:()=>new THREE.DodecahedronGeometry(0.55,0),
-};
+  function initSectionBg(canvas) {
+    const section = canvas.closest('section') || canvas.closest('.section,.section-dark');
+    const W = section ? section.offsetWidth : (canvas.offsetWidth || window.innerWidth);
+    const H = section ? section.offsetHeight : (canvas.offsetHeight || 500);
+    canvas.width = W; canvas.height = H;
+    canvas.style.position = 'absolute';
+    canvas.style.inset = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
 
-document.querySelectorAll('.sbg-canvas').forEach(canvas=>{
-  const bgType=canvas.dataset.bg||'ico';
-  const section=canvas.closest('.section,.section-dark,.section-alt,.hero');
-  if(!section)return;
+    let renderer;
+    try { renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: 'low-power' }); }
+    catch(e) { canvas.style.display = 'none'; return; }
+    renderer.setSize(W, H);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.2));
 
-  const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
-  const scene=new THREE.Scene();
-  const cam=new THREE.PerspectiveCamera(50,2,0.1,50);
-  cam.position.set(0,0,14);
+    const scene = new THREE.Scene();
+    const cam = new THREE.PerspectiveCamera(55, W / H, 0.1, 200);
+    cam.position.z = 5;
 
-  scene.add(new THREE.AmbientLight(0x8899cc,1.5));
-  const d=new THREE.DirectionalLight(0xffffff,1.8);d.position.set(3,4,5);scene.add(d);
+    const type = canvas.dataset.bg || 'ico';
+    const isDark = canvas.closest('.section-bg-dark') !== null;
+    const C = isDark ? 0x38BDF8 : 0x1D4ED8;
+    const op = isDark ? 0.09 : 0.06;
 
-  const isDark=section.classList.contains('section-dark');
-  const mainColor=isDark?0x38bdf8:0x2563eb;
+    const mat = new THREE.MeshBasicMaterial({ color: C, wireframe: true, transparent: true, opacity: op });
+    const matB = new THREE.MeshBasicMaterial({ color: C, wireframe: true, transparent: true, opacity: op * 0.5 });
+    const objects = [];
 
-  if(bgType==='pts'){
-    const pc2=120;
-    const pa2=new Float32Array(pc2*3);
-    for(let i=0;i<pc2*3;i++)pa2[i]=(Math.random()-0.5)*16;
-    const pg2=new THREE.BufferGeometry();pg2.setAttribute('position',new THREE.BufferAttribute(pa2,3));
-    const pm2=new THREE.PointsMaterial({size:0.04,color:mainColor,transparent:true,opacity:0.4,depthWrite:false});
-    scene.add(new THREE.Points(pg2,pm2));
-  }else{
-    const build=geoBuilders[bgType]||geoBuilders.ico;
-    const count=bgType==='ring'?3:bgType==='torus'?2:4;
-    for(let i=0;i<count;i++){
-      const g=build();
-      if(!g)continue;
-      const m=new THREE.Mesh(g,new THREE.MeshPhysicalMaterial({color:mainColor,metalness:0.08,roughness:0.2,clearcoat:0.35,transparent:true,opacity:0.55}));
-      m.position.set((Math.random()-0.5)*8,(Math.random()-0.5)*5,(Math.random()-0.5)*4-2);
-      m.rotation.set(Math.random()*Math.PI,Math.random()*Math.PI,Math.random()*Math.PI);
-      m.userData={rx:(Math.random()-0.5)*0.008,ry:(Math.random()-0.5)*0.01,rz:(Math.random()-0.5)*0.006};
-      scene.add(m);
-    }
-  }
-
-  const observer=new IntersectionObserver(([entry])=>{
-    if(entry.isIntersecting){
-      function secAnim(){
-        if(!document.body.contains(canvas))return;
-        const t=performance.now()*0.001;
-        scene.children.forEach(c=>{if(c.userData.rx){c.rotation.x+=c.userData.rx;c.rotation.y+=c.userData.ry}});
-        renderer.render(scene,cam);
-        requestAnimationFrame(secAnim);
+    if (type === 'ico') {
+      const m = new THREE.Mesh(new THREE.IcosahedronGeometry(2.2, 1), mat);
+      m.position.set(W > 900 ? 3.5 : 2, 0, 0); scene.add(m); objects.push([m, 0.04, 0.07, 0]);
+      const m2 = new THREE.Mesh(new THREE.IcosahedronGeometry(1.1, 1), matB);
+      m2.position.set(W > 900 ? -3.5 : -2.5, 1, -1); scene.add(m2); objects.push([m2, -0.06, 0.04, Math.PI / 3]);
+    } else if (type === 'octa') {
+      const m = new THREE.Mesh(new THREE.OctahedronGeometry(2.4, 0), mat);
+      m.position.set(W > 900 ? -3.5 : -2.5, 0.5, 0); scene.add(m); objects.push([m, 0.05, -0.08, 0]);
+      const m2 = new THREE.Mesh(new THREE.OctahedronGeometry(1.2, 0), matB);
+      m2.position.set(W > 900 ? 4 : 2.5, -1, -1); scene.add(m2); objects.push([m2, -0.07, 0.05, Math.PI / 4]);
+    } else if (type === 'torus') {
+      const m = new THREE.Mesh(new THREE.TorusGeometry(2.2, 0.4, 12, 48), mat);
+      m.position.set(W > 900 ? 4 : 2.5, 0.5, 0); m.rotation.x = Math.PI / 5; scene.add(m); objects.push([m, 0.02, 0.06, 0]);
+      const m2 = new THREE.Mesh(new THREE.TorusGeometry(1.1, 0.25, 8, 32), matB);
+      m2.position.set(W > 900 ? -3.5 : -2.5, -0.5, -1); m2.rotation.y = Math.PI / 4; scene.add(m2); objects.push([m2, 0.04, -0.05, Math.PI / 5]);
+    } else if (type === 'tetra') {
+      const m = new THREE.Mesh(new THREE.TetrahedronGeometry(2.4, 0), mat);
+      m.position.set(W > 900 ? -3.5 : -2.5, 0.5, 0); scene.add(m); objects.push([m, 0.06, -0.09, 0]);
+      const m2 = new THREE.Mesh(new THREE.TetrahedronGeometry(1.3, 0), matB);
+      m2.position.set(W > 900 ? 3.5 : 2.5, -0.5, -1); scene.add(m2); objects.push([m2, -0.08, 0.06, Math.PI / 3]);
+    } else if (type === 'torusknot') {
+      const m = new THREE.Mesh(new THREE.TorusKnotGeometry(1.8, 0.35, 80, 12), mat);
+      m.position.set(W > 900 ? 4 : 2.5, 0, 0); scene.add(m); objects.push([m, 0.03, 0.05, 0]);
+      const m2 = new THREE.Mesh(new THREE.OctahedronGeometry(1.2, 0), matB);
+      m2.position.set(W > 900 ? -4 : -2.5, 0.5, -1); scene.add(m2); objects.push([m2, -0.05, 0.04, Math.PI / 4]);
+    } else if (type === 'ring') {
+      for (let i = 0; i < 3; i++) {
+        const r = 1.6 + i * 0.9;
+        const ring = new THREE.Mesh(new THREE.TorusGeometry(r, 0.012, 2, 80), new THREE.MeshBasicMaterial({ color: C, transparent: true, opacity: op * (1 - i * 0.2) }));
+        ring.rotation.x = Math.PI / (3 + i); ring.rotation.y = (i * Math.PI) / 4;
+        ring.position.set(W > 900 ? (i % 2 === 0 ? 3.5 : -3) : (i % 2 === 0 ? 2 : -2), (i - 1) * 0.5, 0);
+        scene.add(ring); objects.push([ring, 0.01 * (i + 1), 0.015 * (i + 1), i * Math.PI / 5]);
       }
-      secAnim();
-      observer.unobserve(section);
+    } else if (type === 'pts') {
+      const count = 220;
+      const pos = new Float32Array(count * 3);
+      const spread = 8;
+      for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * spread;
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+      const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: C, size: 0.06, transparent: true, opacity: isDark ? 0.55 : 0.35, blending: THREE.AdditiveBlending, depthWrite: false }));
+      scene.add(pts); objects.push([pts, 0.008, 0.012, 0]);
     }
-  },{threshold:0.05});
-  observer.observe(section);
 
-  function resize(){
-    const rect=section.getBoundingClientRect();
-    const w=rect.width||window.innerWidth;
-    const h=rect.height||400;
-    renderer.setSize(w,h,false);
-    cam.aspect=w/Math.max(h,1);
-    cam.updateProjectionMatrix();
+    const clock = new THREE.Clock();
+    let raf;
+    (function loop() {
+      raf = requestAnimationFrame(loop);
+      const t = clock.getElapsedTime();
+      objects.forEach(([obj, rx, ry, offset]) => { obj.rotation.x = offset + t * rx; obj.rotation.y = t * ry; });
+      renderer.render(scene, cam);
+    })();
+
+    const visObs = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) { cancelAnimationFrame(raf); }
+      else { (function loop() { raf = requestAnimationFrame(loop); objects.forEach(([obj,rx,ry,offset]) => { const t = clock.getElapsedTime(); obj.rotation.x = offset + t*rx; obj.rotation.y = t*ry; }); renderer.render(scene, cam); })(); }
+    }, { threshold: 0 });
+    if (section) visObs.observe(section);
   }
-  resize();
-  window.addEventListener('resize',resize);
-  sectionCanvases.push({renderer,scene,cam,section,resize});
-});
+})();
 </script>
 
 <!-- APP LOGIC -->
@@ -486,74 +538,51 @@ const IND_LOOKUP={'defence-aerospace':'Defence & Aerospace','geospatial-smart-ci
 let demos=[],currentView='categories',activeFilters={category:null,technology:null,industry:null,maturity:null},searchQuery='';
 
 async function init(){
-  try{const r=await fetch(INVENTORY_URL);demos=(await r.json()).demos;setupNav();renderView();}catch(e){document.getElementById('main-content').innerHTML=`<div class="no-results"><h3>Could not load inventory</h3><p>${e.message}</p></div>`;}
+  try{const r=await fetch(INVENTORY_URL);demos=(await r.json()).demos;setupNav();renderView();observeReveal();}catch(e){document.getElementById('main-content').innerHTML=`<div class="no-results"><h3>Could not load inventory</h3><p>${e.message}</p></div>`;}
 }
 function setupNav(){
   document.querySelectorAll('.nav-link').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.nav-link').forEach(b=>b.classList.remove('active'));btn.classList.add('active');currentView=btn.dataset.view;activeFilters={category:null,technology:null,industry:null,maturity:null};searchQuery='';renderView();setTimeout(()=>window.scrollTo({top:(document.getElementById('main-content').offsetTop||300)-80,behavior:'smooth'}),100);});});
 }
+function observeReveal(){document.querySelectorAll('.reveal').forEach(el=>{const io2=new IntersectionObserver(([e])=>{if(e.isIntersecting){e.target.classList.add('visible');io2.unobserve(e.target)}},{threshold:0.12});io2.observe(el);});}
+
 function renderView(){
   const mc=document.getElementById('main-content');
   if(currentView==='categories'){mc.innerHTML=buildCategoriesView();bindCatClicks();}
   else if(currentView==='technology'){mc.innerHTML=buildFacetView('technology',TECH_OPTIONS,'tech','Technology','ico');bindTechChips();}
   else if(currentView==='industry'){mc.innerHTML=buildFacetView('industry',INDUSTRY_OPTIONS,'ind','Industry','octa');bindIndChips();}
   else{mc.innerHTML=buildAllView();bindAllFilters();}
-  updateGrid();
-  observeReveal();
+  updateGrid();observeReveal();
 }
-function observeReveal(){document.querySelectorAll('.reveal').forEach(el=>{const obs=new IntersectionObserver(([e])=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}},{threshold:0.08});obs.observe(el);});}
 
-function bgDecorations(sbgType){
-  return `<div class="sec-bg"><canvas class="sbg-canvas" data-bg="${sbgType}"></canvas><div class="sbg-orb sbg-orb1"></div><div class="sbg-orb sbg-orb2"></div><div class="sbg-ring sbg-r1"></div><div class="sbg-ring sbg-r2"></div><div class="sbg-ring sbg-r3"></div></div>`;
-}
-function bgDark(sbgType){
-  return `<div class="sec-bg"><canvas class="sbg-canvas" data-bg="${sbgType}"></canvas><div class="sbg-grid"></div><div class="sbg-orb sbg-orb1"></div><div class="sbg-orb sbg-orb2"></div><div class="sbg-ring sbg-r1"></div><div class="sbg-glow sbg-g1"></div><div class="sbg-glow sbg-g2"></div></div>`;
-}
+function bgDecor(sbgType){return `<div class="section-bg-light"><canvas class="sbg-canvas" data-bg="${sbgType}"></canvas><div class="sbg-orb sbg-orb1"></div><div class="sbg-orb sbg-orb2"></div><div class="sbg-ring sbg-r1"></div><div class="sbg-ring sbg-r2"></div><div class="sbg-ring sbg-r3"></div></div>`;}
+function bgDark(sbgType){return `<div class="section-bg-dark"><canvas class="sbg-canvas" data-bg="${sbgType}"></canvas><div class="sbg-grid"></div><div class="sbg-orb sbg-orb1"></div><div class="sbg-orb sbg-orb2"></div><div class="sbg-ring sbg-r1"></div><div class="sbg-glow sbg-g1"></div><div class="sbg-glow sbg-g2"></div></div>`;}
 
 function buildCategoriesView(){
-  let h=`<section class="section">${bgDecorations('ico')}<div class="container"><div class="text-center"><span class="eyebrow">9 Technology Categories</span><h2>Explore by <span class="acc">Domain</span></h2><p class="section-sub">Every demo is classified by primary technology domain, industry sector, capability tags, and maturity level.</p></div><div class="cat-grid">`;
+  let h=`<section id="sec-categories" class="section">${bgDecor('ico')}<div class="container"><div class="text-center"><span class="eyebrow">9 Technology Categories</span><h2>Explore by <span class="acc">Domain</span></h2><p class="section-sub">Every demo is classified by primary technology domain, industry sector, capability tags, and maturity level.</p></div><div class="cat-grid">`;
   for(const[k,m]of Object.entries(CATEGORY_META)){const c=demos.filter(d=>d.primaryCategory===k).length;h+=`<div class="cat-card reveal" data-cat="${k}"><div class="cat-icon">${m.icon}</div><h3>${m.name}</h3><div class="cat-subtitle">${m.subtitle}</div><span class="cat-count">${c} demos</span><div class="cat-subs">${m.subs.map(s=>`<span class="cat-subtag">${s}</span>`).join('')}</div></div>`;}
   h+='</div><div class="stats-row reveal"><div class="stat-item"><div class="stat-val">47</div><div class="stat-lbl">Total Demos</div></div><div class="stat-item"><div class="stat-val">1</div><div class="stat-lbl">Production</div></div><div class="stat-item"><div class="stat-val">8</div><div class="stat-lbl">Beta</div></div><div class="stat-item"><div class="stat-val">21</div><div class="stat-lbl">Prototypes</div></div><div class="stat-item"><div class="stat-val">32</div><div class="stat-lbl">Active</div></div></div></div></section>';
   return h;
 }
-function bindCatClicks(){
-  document.querySelectorAll('.cat-card').forEach(card=>{card.addEventListener('click',()=>{currentView='all';activeFilters={category:card.dataset.cat,technology:null,industry:null,maturity:null};document.querySelectorAll('.nav-link').forEach(b=>b.classList.remove('active'));document.querySelector('.nav-link[data-view="all"]').classList.add('active');document.getElementById('main-content').innerHTML=buildAllView();bindAllFilters();updateGrid();const chips=document.querySelectorAll('.cat-chip');chips.forEach(ch=>{if(ch.dataset.category===card.dataset.cat)ch.classList.add('active');});setTimeout(()=>window.scrollTo({top:document.getElementById('main-content').offsetTop-80,behavior:'smooth'}),100);});});
-}
+function bindCatClicks(){document.querySelectorAll('.cat-card').forEach(card=>{card.addEventListener('click',()=>{currentView='all';activeFilters={category:card.dataset.cat,technology:null,industry:null,maturity:null};document.querySelectorAll('.nav-link').forEach(b=>b.classList.remove('active'));document.querySelector('.nav-link[data-view="all"]').classList.add('active');document.getElementById('main-content').innerHTML=buildAllView();bindAllFilters();updateGrid();observeReveal();const chips=document.querySelectorAll('.cat-chip');chips.forEach(ch=>{if(ch.dataset.category===card.dataset.cat)ch.classList.add('active');});setTimeout(()=>window.scrollTo({top:document.getElementById('main-content').offsetTop-80,behavior:'smooth'}),100);});});}
 
 function buildFacetView(field,options,prefix,label,sbgType){
-  let h=`<section class="section-dark">${bgDark(sbgType)}<div class="container"><div class="text-center"><span class="eyebrow">Discovery Path</span><h2>Browse by <span class="acc-lt">${label}</span></h2><p class="section-sub">Filter the demo portfolio by ${label.toLowerCase()} to find relevant capabilities.</p></div>`;
+  let h=`<section id="sec-${prefix}" class="section-dark">${bgDark(sbgType)}<div class="container"><div class="text-center"><span class="eyebrow">Discovery Path</span><h2>Browse by <span class="acc-lt">${label}</span></h2><p class="section-sub">Filter the demo portfolio by ${label.toLowerCase()} to find relevant capabilities.</p></div>`;
   h+=`<div class="search-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="text" id="search-input" placeholder="Search demos..." autocomplete="off"></div>`;
-  h+=`<div class="facet-filters">`;
-  options.forEach(o=>{const c=countByFacet(field,o);h+=`<button class="filter-chip ${prefix}-chip" data-${prefix}="${o}">${o}<span class="count">${c}</span></button>`;});
-  h+=`</div><div class="demos-grid" id="demos-grid"></div></div></section>`;
-  return h;
+  h+=`<div class="facet-filters">`;options.forEach(o=>{const c=countByFacet(field,o);h+=`<button class="filter-chip ${prefix}-chip" data-${prefix}="${o}">${o}<span class="count">${c}</span></button>`;});h+=`</div><div class="demos-grid" id="demos-grid"></div></div></section>`;return h;
 }
-function countByFacet(f,val){
-  if(f==='technology')return demos.filter(d=>d.tags.some(t=>t.toLowerCase().includes(val.toLowerCase())||matchTech(t,val))).length;
-  if(f==='industry'){const k=Object.entries(IND_LOOKUP).find(([,v])=>v===val)?.[0];return demos.filter(d=>d.industry===k).length;}
-  return 0;
-}
-function matchTech(tag,fv){
-  const m={'Agentic AI':['Agentic AI','Autonomous','Multi-Agent','Orchestration'],'Physical AI':['Physics AI','CFD','Simulation','Aerodynamics','VLM','Hydrodynamics','PINNs'],'Digital Twins':['Digital Twin','3D Visualization','3D Reconstruction','Gaussian Splatting','WebGPU','BIM'],'Computer Vision':['Computer Vision','Deep Learning','Defect Detection','OCR','YOLO'],'GeoAI':['GeoAI','Urban Analytics','OSM','Graph AI','Satellite','WebGIS','Remote Sensing'],'Simulation':['Simulation','CFD','FEA','Aerodynamics'],'Multimodal AI':['Multimodal','Sensor Fusion','Radar','RF','LiDAR'],'Document Intelligence':['Document Intelligence','OCR','Entity Extraction','RFP','Tax','Compliance'],'IoT & Edge AI':['IoT','Edge','Sensors','MQTT','IEC 61850']};
-  return (m[fv]||[]).some(k=>tag.toLowerCase().includes(k.toLowerCase()));
-}
+function countByFacet(f,val){if(f==='technology')return demos.filter(d=>d.tags.some(t=>t.toLowerCase().includes(val.toLowerCase())||matchTech(t,val))).length;if(f==='industry'){const k=Object.entries(IND_LOOKUP).find(([,v])=>v===val)?.[0];return demos.filter(d=>d.industry===k).length;}return 0;}
+function matchTech(tag,fv){const m={'Agentic AI':['Agentic AI','Autonomous','Multi-Agent','Orchestration'],'Physical AI':['Physics AI','CFD','Simulation','Aerodynamics','VLM','Hydrodynamics','PINNs'],'Digital Twins':['Digital Twin','3D Visualization','3D Reconstruction','Gaussian Splatting','WebGPU','BIM'],'Computer Vision':['Computer Vision','Deep Learning','Defect Detection','OCR','YOLO'],'GeoAI':['GeoAI','Urban Analytics','OSM','Graph AI','Satellite','WebGIS','Remote Sensing'],'Simulation':['Simulation','CFD','FEA','Aerodynamics'],'Multimodal AI':['Multimodal','Sensor Fusion','Radar','RF','LiDAR'],'Document Intelligence':['Document Intelligence','OCR','Entity Extraction','RFP','Tax','Compliance'],'IoT & Edge AI':['IoT','Edge','Sensors','MQTT','IEC 61850']};return (m[fv]||[]).some(k=>tag.toLowerCase().includes(k.toLowerCase()));}
 function bindTechChips(){document.querySelectorAll('.tech-chip').forEach(ch=>{ch.addEventListener('click',()=>{if(ch.classList.contains('active')){ch.classList.remove('active');activeFilters.technology=null}else{document.querySelectorAll('.tech-chip').forEach(c=>c.classList.remove('active'));ch.classList.add('active');activeFilters.technology=ch.dataset.tech}updateGrid()})});bindSearch()}
 function bindIndChips(){document.querySelectorAll('.ind-chip').forEach(ch=>{ch.addEventListener('click',()=>{if(ch.classList.contains('active')){ch.classList.remove('active');activeFilters.industry=null}else{document.querySelectorAll('.ind-chip').forEach(c=>c.classList.remove('active'));ch.classList.add('active');const k=Object.entries(IND_LOOKUP).find(([,v])=>v===ch.dataset.ind)?.[0];activeFilters.industry=k||null}updateGrid()})});bindSearch()}
 
 function buildAllView(){
-  let h=`<section class="section">${bgDecorations('torus')}<div class="container"><div class="text-center"><span class="eyebrow">Complete Portfolio</span><h2>Browse All <span class="acc">${demos.length} Demos</span></h2><p class="section-sub">Search across all categories, or filter by domain, maturity, and capability tags.</p></div>`;
+  let h=`<section id="sec-all" class="section">${bgDecor('torus')}<div class="container"><div class="text-center"><span class="eyebrow">Complete Portfolio</span><h2>Browse All <span class="acc">${demos.length} Demos</span></h2><p class="section-sub">Search across all categories, or filter by domain, maturity, and capability tags.</p></div>`;
   h+=`<div class="search-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input type="text" id="search-input" placeholder="Search all demos by name, tag, or description..." autocomplete="off"></div>`;
-  h+=`<div class="filter-bar"><span class="filter-label">Category:</span>`;
-  for(const[k,m]of Object.entries(CATEGORY_META)){const c=demos.filter(d=>d.primaryCategory===k).length;h+=`<button class="filter-chip cat-chip" data-category="${k}">${m.name.split('&')[0].trim()}<span class="count">${c}</span></button>`;}
-  h+=`</div><div class="filter-bar"><span class="filter-label">Maturity:</span>`;
-  ['production','beta','prototype','concept','planned'].forEach(m=>{const c=demos.filter(d=>d.maturity===m).length;h+=`<button class="filter-chip maturity-chip" data-maturity="${m}">${m}<span class="count">${c}</span></button>`;});
-  h+=`</div><div class="demos-grid" id="demos-grid"></div></div></section>`;
-  return h;
+  h+=`<div class="filter-bar"><span class="filter-label">Category:</span>`;for(const[k,m]of Object.entries(CATEGORY_META)){const c=demos.filter(d=>d.primaryCategory===k).length;h+=`<button class="filter-chip cat-chip" data-category="${k}">${m.name.split('&')[0].trim()}<span class="count">${c}</span></button>`;}h+=`</div>`;
+  h+=`<div class="filter-bar"><span class="filter-label">Maturity:</span>`;['production','beta','prototype','concept','planned'].forEach(m=>{const c=demos.filter(d=>d.maturity===m).length;h+=`<button class="filter-chip maturity-chip" data-maturity="${m}">${m}<span class="count">${c}</span></button>`;});h+=`</div>`;
+  h+=`<div class="demos-grid" id="demos-grid"></div></div></section>`;return h;
 }
-function bindAllFilters(){
-  document.querySelectorAll('.cat-chip').forEach(ch=>{ch.addEventListener('click',()=>{if(ch.classList.contains('active')){ch.classList.remove('active');activeFilters.category=null}else{document.querySelectorAll('.cat-chip').forEach(c=>c.classList.remove('active'));ch.classList.add('active');activeFilters.category=ch.dataset.category}updateGrid()})});
-  document.querySelectorAll('.maturity-chip').forEach(ch=>{ch.addEventListener('click',()=>{if(ch.classList.contains('active')){ch.classList.remove('active');activeFilters.maturity=null}else{document.querySelectorAll('.maturity-chip').forEach(c=>c.classList.remove('active'));ch.classList.add('active');activeFilters.maturity=ch.dataset.maturity}updateGrid()})});
-  bindSearch();
-}
+function bindAllFilters(){document.querySelectorAll('.cat-chip').forEach(ch=>{ch.addEventListener('click',()=>{if(ch.classList.contains('active')){ch.classList.remove('active');activeFilters.category=null}else{document.querySelectorAll('.cat-chip').forEach(c=>c.classList.remove('active'));ch.classList.add('active');activeFilters.category=ch.dataset.category}updateGrid()})});document.querySelectorAll('.maturity-chip').forEach(ch=>{ch.addEventListener('click',()=>{if(ch.classList.contains('active')){ch.classList.remove('active');activeFilters.maturity=null}else{document.querySelectorAll('.maturity-chip').forEach(c=>c.classList.remove('active'));ch.classList.add('active');activeFilters.maturity=ch.dataset.maturity}updateGrid()})});bindSearch();}
 function bindSearch(){const si=document.getElementById('search-input');if(si)si.addEventListener('input',()=>{searchQuery=si.value;updateGrid()})}
 
 function updateGrid(){
@@ -565,16 +594,7 @@ function updateGrid(){
   if(activeFilters.industry)f=f.filter(d=>d.industry===activeFilters.industry);
   if(activeFilters.maturity)f=f.filter(d=>d.maturity===activeFilters.maturity);
   if(!f.length){grid.innerHTML=`<div class="no-results"><h3>No matching demos</h3><p>Try adjusting filters or search terms.</p><button class="btn btn-secondary" onclick="clearFilters()">Clear All</button></div>`;return}
-  grid.innerHTML=f.map(d=>{
-    const cm=CATEGORY_META[d.primaryCategory]||{};
-    return `<div class="demo-card reveal"><div class="demo-head"><div class="demo-name">${d.name}</div><div class="demo-badges"><span class="badge badge-${d.maturity}">${d.maturity}</span></div></div>
-    <div class="demo-meta-row"><span class="meta-cat">${cm.name||d.primaryCategory}</span><span class="meta-ind">${IND_LOOKUP[d.industry]||d.industry}</span></div>
-    <div class="demo-desc">${d.summary}</div>
-    <div class="demo-tags">${d.tags.map(t=>`<span class="demo-tag">${t}</span>`).join('')}</div>
-    <div class="demo-footer"><span>${d.technologyStack.slice(0,3).join(' · ')}</span><span>${d.repositoryUrl?`<a href="${d.repositoryUrl}" target="_blank">Repo →</a>`:''}${d.liveUrl?` <a href="${d.liveUrl}" target="_blank">Live →</a>`:''}</span></div></div>`;
-  }).join('');
-  observeReveal();
-}
+  grid.innerHTML=f.map(d=>{const cm=CATEGORY_META[d.primaryCategory]||{};return `<div class="demo-card reveal"><div class="demo-head"><div class="demo-name">${d.name}</div><div class="demo-badges"><span class="badge badge-${d.maturity}">${d.maturity}</span></div></div><div class="demo-meta-row"><span class="meta-cat">${cm.name||d.primaryCategory}</span><span class="meta-ind">${IND_LOOKUP[d.industry]||d.industry}</span></div><div class="demo-desc">${d.summary}</div><div class="demo-tags">${d.tags.map(t=>`<span class="demo-tag">${t}</span>`).join('')}</div><div class="demo-footer"><span>${d.technologyStack.slice(0,3).join(' · ')}</span><span>${d.repositoryUrl?`<a href="${d.repositoryUrl}" target="_blank">Repo →</a>`:''}${d.liveUrl?` <a href="${d.liveUrl}" target="_blank">Live →</a>`:''}</span></div></div>`;}).join('');observeReveal();}
 function clearFilters(){activeFilters={category:null,technology:null,industry:null,maturity:null};searchQuery='';const si=document.getElementById('search-input');if(si)si.value='';document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));updateGrid()}
 window.clearFilters=clearFilters;
 init();
